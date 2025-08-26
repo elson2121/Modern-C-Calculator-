@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -27,6 +28,16 @@ double divide(double a, double b)
     return a / b;
 }
 
+double power(double base, double exponent) {
+    return pow(base, exponent);
+}
+
+double squareRoot(double a) {
+    if (a < 0) {
+        throw runtime_error("Square root of negative number is not allowed");
+    }
+    return sqrt(a);
+}
 int main()
 {
     cout << "=== C++ Calculator ===" << endl;
