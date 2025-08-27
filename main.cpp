@@ -37,27 +37,57 @@ double squareRoot(double a) {
         throw runtime_error("Square root of negative number is not allowed");
     }
     return sqrt(a);
+
 }
+void displayMenu() {
+    cout << "\n=== C++ Calculator ===" << endl;
+    cout << "Select operation:" << endl;
+    cout << "1. Addition (+)" << endl;
+    cout << "2. Subtraction (-)" << endl;
+    cout << "3. Multiplication (*)" << endl;
+    cout << "4. Division (/)" << endl;
+    cout << "5. Power (^)" << endl;
+    cout << "6. Square Root (s)" << endl;
+    cout << "7. Exit" << endl;
+    cout << "Enter choice (1-7): ";
+}
+
+
+
 int main()
 {
     cout << "=== C++ Calculator ===" << endl;
+ while (true) {
+        displayMenu();
+        int choice;
+        cin >> choice;
+
+        if (choice == 7) {
+            cout << "Exiting calculator..." << endl;
+            break;
+        }
+
+        if (choice < 1 || choice > 7) {
+            cout << "Error: Invalid choice" << endl;
+            continue;
+        }
 
     double num1, num2;
-    char operation;
-
     // Input
     cout << "Enter first number: ";
     cin >> num1;
-    cout << "Enter operation (+, -, *, /): ";
-    cin >> operation;
-    cout << "Enter second number: ";
-    cin >> num2;
+ if (choice != 6) {
+            cout << "Enter second number: ";
+            cin >> num2;
+        } else {
+            num2 = 0; // Dummy value for square root
+        }
 
     // Perform calculation
     try
     {
         double result;
-        switch (operation)
+        switch (choice)
         {
         case '+':
             result = add(num1, num2);
